@@ -50,32 +50,14 @@ def PlayersInRangeFunction(up,down,Run_time):
         RandomPlayer.iloc[6:12,3] += 1
         RandomPlayer.iloc[6:12,4] += 1
         
-        print(RandomPlayer)
+        dataset.update(RandomPlayer)
         
-        dataset['CurrentSR'] = RandomPlayer['CurrentSR'].replace() 
-        dataset['CurrentSR'] = dataset['CurrentSR'].fillna(0)
-        
-        dataset['Games Played'] = RandomPlayer['Games Played'].replace() + dataset['Games Played']
-        dataset['Games Played'] = dataset['Games Played'].fillna(0)
-        
-        dataset['Games Lost'] = RandomPlayer['Games Lost'].replace() + dataset['Games Lost']
-        dataset['Games Lost'] = dataset['Games Lost'].fillna(0)
-        
-        dataset['Games Won'] = RandomPlayer['Games Won'].replace() + dataset['Games Won']
-        dataset['Games Won'] = dataset['Games Won'].fillna(0)
-    
-    
-    #print(PlayersInRange)
-    
-    #print(dataset)
-    
-    #dataset.drop(dataset.columns[0], axis=1)
-    
+
     dataset.to_csv('Porcd.txt')
 
     print("fin")
     
-PlayersInRangeFunction(100,100,2)
+PlayersInRangeFunction(100,100,1000)
   
 
 """
