@@ -1,6 +1,6 @@
 import pandas as pd
 import random 
-import _thread
+
 
 dataset = pd.read_csv("PlayerData.txt")
 
@@ -54,7 +54,7 @@ def PlayersInRangeFunction(up,down,Run_time):
 
     print("fin")
     
-PlayersInRangeFunction(100,100,10000)
+PlayersInRangeFunction(100,100,50000)
   
 
 """
