@@ -1,17 +1,15 @@
 import pandas as pd
 import random 
+import _thread
 
 dataset = pd.read_csv("PlayerData.txt")
 
 def PlayersInRangeFunction(up,down,Run_time):
     for x in range(0, Run_time):
         baseSR = random.randint(400,4600)
-        #baseSR = 300
-        #print("Base SR for function to run on: " ,baseSR)
         DownSR = baseSR - down
         UpSR = baseSR + up
-        
-        #print("Players in range " + str(DownSR) + " to " + str(UpSR))
+             
        
         UpRange = dataset.loc[dataset['CurrentSR']<= UpSR]
     
@@ -19,14 +17,13 @@ def PlayersInRangeFunction(up,down,Run_time):
         
         #Total number of players found from this search. 
         Rows = len(PlayersInRange.index)
-        #print(Rows , " : Players in range")
+       
         
+       #Checking to see if the SR that was selected has atleast 12 players so a game can
+       #simulate properly
         while Rows <= 12:
             DownSR = DownSR-25
             UpSR = UpSR+25
-            
-            #print("\nInvalid player number correction\n")
-            #print("Players in range CORRECTOION " + str(DownSR) + " to " + str(UpSR))
             
             UpRange = dataset.loc[dataset['CurrentSR']<= UpSR]
     
@@ -37,7 +34,7 @@ def PlayersInRangeFunction(up,down,Run_time):
         RandomPlayer = PlayersInRange.sample(n=12)
        
         #From the randomly selected players give the stats of a win to the first 6
-        #And give the stats of a win to the second 6
+        #And give the stats of a lose to the second 6
         #Random selection is not needed becasue .sample already does that.
        
         #Game Winner
@@ -57,7 +54,7 @@ def PlayersInRangeFunction(up,down,Run_time):
 
     print("fin")
     
-PlayersInRangeFunction(100,100,1000)
+PlayersInRangeFunction(100,100,10000)
   
 
 """
