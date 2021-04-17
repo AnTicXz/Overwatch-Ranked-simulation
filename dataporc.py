@@ -50,7 +50,7 @@ def PlayersInRangeFunction(up,down,Run_time):
         dataset.update(RandomPlayer)
         
 
-    dataset.to_csv('Porcd.txt')
+    dataset.to_csv('Porcd.txt', index = False)
 
     print("fin")
     
