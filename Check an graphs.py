@@ -12,9 +12,14 @@ print(dataset['Games Lost'].sum())
 
 
 
-data = dataset.iloc[1]
+t1 = list(dataset["CurrentSR"])
+t2 = list(dataset["StartingSR"])
 
-data.hist(grid = False, bins = 300)
+plt.hist(t2, 500 ,facecolor='red',alpha=1, label ="Starting SR")
+plt.hist(t1, 500,facecolor='black',alpha=1, label = "Current SR")
+plt.xlabel("Players SR")
+plt.ylabel("Number of players")
+plt.legend(loc="upper right")
 
 
-
+#plt.savefig('filename.png', dpi=300)
