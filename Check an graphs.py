@@ -15,6 +15,8 @@ print(dataset['Games Lost'].sum())
 t1 = list(dataset["CurrentSR"])
 t2 = list(dataset["StartingSR"])
 
+Games_played = list(dataset["Games Played"])
+
 """
 plt.hist(t2, 250 ,facecolor='red',alpha=1, label ="Starting SR")
 plt.hist(t1, 250,facecolor='black',alpha=1, label = "Current SR")
@@ -26,7 +28,7 @@ plt.legend(loc="upper right")
 
 
 
-
+"""
 t3 = [None] *5000
 
 num = 0
@@ -41,3 +43,20 @@ plt.ylabel("Starting SR")
 
 
 plt.savefig('filen6ame.png', dpi=300)
+
+"""
+t3 = [None] *5000
+
+num = 0
+for x in t2:
+    t3[num] = x - t1[num]
+    num = num + 1
+    
+plt.scatter(t3,Games_played, alpha = 0.25, s=3.5, color="purple")
+plt.ylim(0,500)
+plt.xlabel("SR Delta")
+plt.ylabel("Games played")
+
+
+
+plt.savefig('filen5ame.png', dpi=300)
